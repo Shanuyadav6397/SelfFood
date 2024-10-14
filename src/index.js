@@ -1,5 +1,5 @@
 import express from 'express';
-import connectDB from './config/dbConfig.js';
+import connectDB from './config/dataBaseConfig.js';
 import { PORT } from './config/serverConfig.js';
 
 
@@ -12,10 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post('/ping', (req, res) => {
     console.log(req.body);
-    return res.json({ message: "pong" });
+    return res.json({ message: "success" });
 })
 
 app.listen(PORT, async () => {
     await connectDB();
-    console.log(`Server started at port ${PORT}...!!`);
+    console.log(`Server running on port ${PORT}...!!`);
 });
