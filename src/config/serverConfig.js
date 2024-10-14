@@ -1,7 +1,12 @@
 import dotenv from 'dotenv';
-dotenv.config({
-    path: './.env'
-});
+// this is for if env path can not configured in
+
+/** dotenv.config({
+     path: './.env'
+     }); 
+*/
+
+dotenv.config();
 
 
 // Here we are exporting all the env variables that the project uses

@@ -7,8 +7,9 @@ import { DB_URL } from './serverConfig.js';
  */
 async function connectDB() {
     try {
-        await mongoose.connect(DB_URL);
-        console.log("Successfully connected to the mongo db server .....");
+        //await mongoose.connect(DB_URL);
+        const connection =  await mongoose.connect(`${DB_URL}`);
+        console.log(`MongoDB connected ... DB HOST : ${connection.connection.host}`);
     } catch (error) {
         console.log("Not able to connect to the mongodb server");
         console.log(error);
