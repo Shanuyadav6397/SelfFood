@@ -19,3 +19,6 @@ app.listen(PORT, async () => {
     await connectDB();
     console.log(`Server running on port ${PORT}...!!`);
 });
+
+import { userRouter } from './routes/userRoute.js';
+app.use('/api/v1/user', userRouter);
