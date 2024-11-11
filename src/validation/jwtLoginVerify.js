@@ -1,7 +1,7 @@
 import { findAUser } from "../repositories/userRepositories.js";
 import { ApiError } from "../utils/ApiError.js";
 import jwt from "jsonwebtoken";
-import { NotFoundError } from "../utils/notFoundError";
+import { NotFoundError } from "../utils/notFoundError.js";
 import { JWT_ACCESS_TOKEN_SECRET } from "../config/serverConfig.js";
 
 async function jwtLoginVerify(req, res, next) {
@@ -14,7 +14,7 @@ async function jwtLoginVerify(req, res, next) {
         if (!verified) {
             return res.status(401).json(new ApiError(401, "Unauthorized, invalid token"));
         }
-        const user = await findAUser({ email: verified.email });
+        const user = await findAUser({ _id: verified._id });
         if (!user) {
             return res.status(404).json(new NotFoundError("User"));
         }

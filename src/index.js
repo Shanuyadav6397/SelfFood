@@ -1,14 +1,17 @@
 import express from 'express';
 import connectDB from './config/dataBaseConfig.js';
 import { PORT } from './config/serverConfig.js';
+import cookieParser from 'cookie-parser';
 
 
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json({limit: '32kb'}));
 app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use(cookieParser());
 
 app.post('/ping', (req, res) => {
     console.log(req.body);

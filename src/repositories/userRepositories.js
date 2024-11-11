@@ -19,4 +19,12 @@ async function createAUser(userDetails) {
     }
 }
 
-export { findAUser, createAUser };
+async function updateUser(userId, update){
+    try {
+        const user = await User.findByIdAndUpdate(userId, update, {new: true});
+        return user;
+    } catch (error) {
+        console.log(error);
+    }
+}
+export { findAUser, createAUser, updateUser };
