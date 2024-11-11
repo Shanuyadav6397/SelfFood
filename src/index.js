@@ -21,4 +21,6 @@ app.listen(PORT, async () => {
 });
 
 import { userRouter } from './routes/userRoute.js';
+import { authRouter } from './routes/userAuthRoute.js';
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/user', authRouter);
