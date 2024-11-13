@@ -12,6 +12,7 @@ app.use(
     cors({
       origin: CORS_ORIGIN,
       credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     })
   );
 
@@ -35,7 +36,9 @@ import { userRouter } from './routes/userRoute.js';
 import { authRouter } from './routes/userAuthRoute.js';
 import { productRouter } from './routes/productRoute.js';
 import { feedbackRouter } from './routes/feedbackRoute.js';
+import { orderRouter } from './routes/orderRoute.js';
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/user', authRouter);
 app.use('/api/v1/user', productRouter);
 app.use('/api/v1/user', feedbackRouter);
+app.use('/api/v1/order', orderRouter);
