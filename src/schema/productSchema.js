@@ -20,15 +20,9 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'product price is required']
     },
-    quantity:{
-        type:Number,
-        required:true,
-        default:20
-    },
     category: {
         type: String,
-        enum: ['veg '],
-        default: 'veg'
+        enum: ["burger", "pizza", "beverage", "Chinese Special", "South indian", "Punjabi Special", "Desserts", "Sandwiches"]
     },
     inStock: {
         type: Boolean,
@@ -42,4 +36,4 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", productSchema);
 
-export { Product };
+export default Product;

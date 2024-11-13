@@ -1,11 +1,11 @@
 {
-  "name": "expressstarter",
+  "name": "selffood",
   "version": "1.0.0",
   "description": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon src/index.js"
+    "start": "npx nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
   "author": "",
   "license": "ISC",

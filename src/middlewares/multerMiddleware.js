@@ -1,14 +1,20 @@
 import multer from "multer";
 
-const storageConfig = multer.diskStorage({
-    destination: function (req, file, cb){
-        cb(null, 'uploads/');
-    },
-    filename: function (req, file, cb){
-        cb(null, `${Date.now()}_${file.originalname}`);
-    }
+const storageConfiguration = multer.diskStorage({
+  //multer.diskStorage() creates a storage space for storing files.
+  destination: (req, file, next) => {
+    //destination is used to specify the folder where the files will be stored.
+    next(null, "./src/public/temp"); //public is the folder where the files will be stored.
+  },
+  filename: (req, file, next) => {
+    //filename is used to specify the name of the file.
+    // Here more functions add in filename to make the file name unique after project completion
+    next(null, Date.now() + "_" + file.originalname);
+    //console.log(file);
+  },
 });
 
-const uploader = multer({ storage: storageConfig });
-
-export default uploader;
+export const uploader = multer({
+  //multer() is used to specify the storage space for storing files.
+  storage: storageConfiguration,
+});
