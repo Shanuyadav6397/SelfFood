@@ -1,11 +1,19 @@
 import express from 'express';
 import connectDB from './config/dataBaseConfig.js';
-import { PORT } from './config/serverConfig.js';
+import { CORS_ORIGIN, PORT } from './config/serverConfig.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 
 
 const app = express();
+
+app.use(
+    cors({
+      origin: CORS_ORIGIN,
+      credentials: true,
+    })
+  );
 
 app.use(express.json({limit: '32kb'}));
 app.use(express.text());

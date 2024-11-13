@@ -17,3 +17,4 @@ dotenv.config();
     export const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
     export const JWT_ACCESS_TOKEN_SECRET = process.env.JWT_ACCESS_TOKEN_SECRET;
     export const JWT_ACCESS_TOKEN_EXPIRE = process.env.JWT_ACCESS_TOKEN_EXPIRE;
+    export const CORS_ORIGIN = process.env.CORS_ORIGIN;
